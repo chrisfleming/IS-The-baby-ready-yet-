@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>
+      Is The Baby Ready Yet #codenamelaser
+    </title>
+    <link href="jquery.tweet.css" media="all" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script language="javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" type="text/javascript"></script>
+<script language="javascript" src="tweet/tweet/jquery.tweet.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      google.load('visualization', '1', {packages: ['gauge']});
+
+      
+    jQuery(function($){
+      $("#tweet").tweet({
+        avatar_size: 32,
+        count: 5,
+        username: ["chrisfl", "rachelfleming"],
+        loading_text: "getting latest baby updates....",
+        refresh_interval: 60
+      });
+    });
+
+    
+  jQuery(function($){
+      $("#codenamelasertweets").tweet({
+        avatar_size: 32,
+        count: 4,
+        query: "codenamelaser",
+        loading_text: "searching twitter..."
+      }).bind("empty", function() { $(this).append("No matching tweets found"); });
+    }); 
+
+    </script>
+
+    <script type="text/javascript">
+      function drawVisualization() {
+        // Work out the day
+        today=new Date();
+        due_date=new Date(2011, 08, 15);
+        var days= Math.round( (today.getTime()-due_date.getTime())/(1000*60*60*24) );
+
+
+        // Create and populate the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Label');
+        data.addColumn('number', 'Value');
+        data.addRows(1);
+        data.setValue(0, 0, 'Days');
+        data.setValue(0, 1, days);
+      
+        
+       var options = {redFrom: 7, redTo: 14,
+          yellowFrom:0, yellowTo: 7, minorTicks: 7, min: -14, max: 14};
+      
+        // Create and draw the visualization.
+        new google.visualization.Gauge(document.getElementById('visualization')).
+            draw(data,options);
+      }
+      
+
+      google.setOnLoadCallback(drawVisualization);
+    </script>
+
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-556965-4']);
+  _gaq.push(['_setDomainName', 'chrisfleming.org']);
+  _gaq.push(['_setAllowHash', false]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  </head>
+  <body style="font-family: Trebuchet MS, Helvetica,Verdana,Arial,Sans-Serif ;border: 0 none; margin: 8px 0px 0px 0px; ">
+  
+    
+    <div id="header" style="border-bottom-width: 2px; border-bottom-style:solid; margin-bottom: 30px; padding-left:30px; border-bottom-color: #AAAAAA">
+    <h1 style="color: #AAAAAA; margin-bottom:10px; display:inline">IS THE BABY READY YET?</h1>
+    <h1 style="color: #AAAAAA; margin-bottom:10px; display:inline; text-align:right; float:right; margin-top:0px; margin-right: 8px;">#codenamelaser</h1>
+    </div>  
+    <div id="status" style="border: 2px; display:inline; width: 250px; float: left; font-size:48px; margin-top: 100px; margin-left: 30px">NOT YET</div> 
+    <div id="visualization" style="width:300px ; height: 300px; float: left;"></div>
+    <div id="tweet"></div>
+
+
+    <div id="base" style="color:#999999; font-size:13px; clear:both; border-top-width: 2px; border-top-style:solid; margin-top: 60px; padding-left:30px; border-top-color: #CCCCCC; background-color:#EEEEEE; height:400px; padding-top:10px;">
+      <div id="credits" style="display:inline; float:left;">
+        a <a href="http://www.chrisfleming.org/">chrisfleming.org</a> production<br/>
+        follow <a href="http://twitter.com/#/chrisfl">@chrisfl</a> and  <a href="http://twitter.com/#/rachelfleming">@rachelfleming</a> on twitter.<br/>
+<br/>
+I make absolutly no commitment to actually keep this up to date.<br/>
+      </div>
+      <div id="codenamelaser"  style="float:left; display:inline;  border-left-width: 2px; border-left-style:solid; margin-left: 20px; padding-left:20px; border-left-color: #CCCCCC; width: 600px;">
+      Your #codenamelaser tweets:
+      <div id="codenamelasertweets"></div>
+      </div>
+
+
+   </div> 
+  </body>
+</html>
+

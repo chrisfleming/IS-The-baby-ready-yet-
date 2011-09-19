@@ -1,0 +1,9 @@
+
+A simple dashboard for the status of an unborn child.
+
+This also needs the sea of clouds twitter library:
+https://github.com/seaofclouds/tweet 
+
+pull this in using:
+git clone git://github.com/seaofclouds/tweet.git
+
