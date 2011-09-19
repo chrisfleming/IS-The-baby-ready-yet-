@@ -40,10 +40,9 @@
         // Work out the day
         today=new Date();
         due_date=new Date(2011, 08, 15);
-        var days= Math.round( (today.getTime()-due_date.getTime())/(1000*60*60*24) );
+        var days=  parseFloat( ((today.getTime()-due_date.getTime())/(1000*60*60*24)).toPrecision(2) ); 
 
-
-        // Create and populate the data table.
+       // Create and populate the data table.
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'Label');
         data.addColumn('number', 'Value');
