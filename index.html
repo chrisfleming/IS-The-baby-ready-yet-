@@ -3,12 +3,12 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <title>
-      Is The Baby Ready Yet #codenamelaser
+      Is The Baby Ready Yet #codenamesonar
     </title>
     <link href="jquery.tweet.css" media="all" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" src="http://www.google.com/jsapi"></script>
     <script language="javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" type="text/javascript"></script>
-<script language="javascript" src="tweet/tweet/jquery.tweet.js" type="text/javascript"></script>
+    <script language="javascript" src="http://jquery-twitter-api.googlecode.com/files/jquery-twitter-plugin.js" type="text/javascript"></script>
     <script type="text/javascript">
       google.load('visualization', '1', {packages: ['gauge']});
 
@@ -25,10 +25,10 @@
 
     
   jQuery(function($){
-      $("#codenamelasertweets").tweet({
+      $("#codenamesonartweets").tweet({
         avatar_size: 32,
         count: 4,
-        query: "codenamelaser",
+        query: "codenamesonar",
         loading_text: "searching twitter..."
       }).bind("empty", function() { $(this).append("No matching tweets found"); });
     }); 
@@ -39,7 +39,7 @@
       function drawVisualization() {
         // Work out the day
         today=new Date();
-        due_date=new Date(2011, 08, 15);
+        due_date=new Date(2013, 11, 20);
         var days=  parseFloat( ((today.getTime()-due_date.getTime())/(1000*60*60*24)).toPrecision(2) ); 
 
        // Create and populate the data table.
@@ -85,7 +85,7 @@
     
     <div id="header" style="border-bottom-width: 2px; border-bottom-style:solid; margin-bottom: 30px; padding-left:30px; border-bottom-color: #AAAAAA">
     <h1 style="color: #AAAAAA; margin-bottom:10px; display:inline">IS THE BABY READY YET?</h1>
-    <h1 style="color: #AAAAAA; margin-bottom:10px; display:inline; text-align:right; float:right; margin-top:0px; margin-right: 8px;">#codenamelaser</h1>
+    <h1 style="color: #AAAAAA; margin-bottom:10px; display:inline; text-align:right; float:right; margin-top:0px; margin-right: 8px;">#codenamesonar</h1>
     </div>  
     <div id="status" style="border: 2px; display:inline; width: 250px; float: left; font-size:48px; margin-top: 100px; margin-left: 30px">NOT YET</div> 
     <div id="visualization" style="width:300px ; height: 300px; float: left;"></div>
@@ -99,9 +99,9 @@
 <br/>
 I make absolutly no commitment to actually keep this up to date.<br/>
       </div>
-      <div id="codenamelaser"  style="float:left; display:inline;  border-left-width: 2px; border-left-style:solid; margin-left: 20px; padding-left:20px; border-left-color: #CCCCCC; width: 600px;">
-      Your #codenamelaser tweets:
-      <div id="codenamelasertweets"></div>
+      <div id="codenamesonar"  style="float:left; display:inline;  border-left-width: 2px; border-left-style:solid; margin-left: 20px; padding-left:20px; border-left-color: #CCCCCC; width: 600px;">
+      Your #codenamesonar tweets:
+      <div id="codenamesonartweets"></div>
       </div>
 
 
